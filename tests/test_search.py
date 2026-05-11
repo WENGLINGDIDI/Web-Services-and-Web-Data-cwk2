@@ -45,6 +45,7 @@ class TestFindPages:
         result = find_pages(INDEX, [])
         assert result == []
 
+
     def test_case_insensitive(self):
         result = find_pages(INDEX, ["HELLO", "World"])
         assert result == ["http://a.com"]
