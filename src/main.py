@@ -48,8 +48,7 @@ def cmd_find(words):
 
 def main():
     global index
-    print("=== Search Tool ===")
-    print("Commands: build | load | print <word> | find <words> | quit")
+    print("Input Commands: build | load | print <word> | find <words> | quit")
 
     while True:
         try:
