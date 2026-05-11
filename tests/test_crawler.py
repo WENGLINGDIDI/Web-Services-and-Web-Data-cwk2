@@ -74,5 +74,4 @@ class TestCrawlSite:
 
             with patch('crawler.time.sleep'):
                 pages = crawl_site('http://test.com/', delay=0)
-
             assert len(pages) == 0

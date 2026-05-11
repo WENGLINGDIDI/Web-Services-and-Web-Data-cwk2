@@ -30,7 +30,6 @@ def build_index(pages):
 
 
 def save_index(index, filepath):
-    """Save index as JSON file."""
     os.makedirs(os.path.dirname(filepath), exist_ok=True)
     with open(filepath, 'w', encoding='utf-8') as f:
         json.dump(index, f, indent=2, ensure_ascii=False)
@@ -38,7 +37,6 @@ def save_index(index, filepath):
 
 
 def load_index(filepath):
-
     if not os.path.exists(filepath):
         print(f"Index file not found: {filepath}")
         return None
