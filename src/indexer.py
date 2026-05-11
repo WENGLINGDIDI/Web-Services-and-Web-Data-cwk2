@@ -4,28 +4,20 @@ import os
 
 
 def tokenize(text):
-    """Split text into words, lowercase, drop non-alphanumeric."""
     return re.findall(r'[a-z0-9]+', text.lower())
 
 
 def build_index(pages):
-    """
-    Build inverted index from crawled pages.
-    pages: dict {url: text_content}
-    Returns dict: {word: {url: {freq: int, positions: [int, ...]}}}
-    """
     index = {}
 
     for url, text in pages.items():
         words = tokenize(text)
-
         # group positions for each word on this page
         page_words = {}
         for pos, w in enumerate(words):
             if w not in page_words:
                 page_words[w] = []
             page_words[w].append(pos)
-
         # merge into global index
         for w, positions in page_words.items():
             if w not in index:
@@ -34,7 +26,6 @@ def build_index(pages):
                 'freq': len(positions),
                 'positions': positions
             }
-
     return index
 
 
@@ -47,7 +38,7 @@ def save_index(index, filepath):
 
 
 def load_index(filepath):
-    """Load index from JSON file."""
+
     if not os.path.exists(filepath):
         print(f"Index file not found: {filepath}")
         return None

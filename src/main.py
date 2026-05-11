@@ -10,6 +10,20 @@ INDEX_PATH = 'data/index.json'
 
 index = None  # current in-memory index
 
+"""
+python src/main.py
+> build
+> load
+> print nonsense
+> print nonexistent
+
+> find indifference
+> find good friends
+> find thisworddoesnotexist
+"""
+
+
+
 
 def cmd_build():
     global index

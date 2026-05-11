@@ -1,10 +1,6 @@
+# search for pages containing given words
 def find_pages(index, words):
-    """
-    Search for pages containing ALL given words (AND logic).
-    index: the inverted index dict
-    words: list of query words
-    Returns list of matching URLs (sorted).
-    """
+
     if not words:
         return []
 

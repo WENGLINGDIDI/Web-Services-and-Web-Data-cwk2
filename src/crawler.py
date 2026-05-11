@@ -5,7 +5,6 @@ from urllib.parse import urljoin
 
 
 def get_page(url):
-    """Get page content. Returns BeautifulSoup object or None."""
     try:
         resp = requests.get(url, timeout=10)
         if resp.status_code == 200:
@@ -17,13 +16,8 @@ def get_page(url):
         print(f"  Error fetching {url}: {e}")
         return None
 
-
+# Crawl quotes website starting from start_url.
 def crawl_site(start_url, delay=6):
-    """
-    Crawl quotes website starting from start_url.
-    Follows 'Next' links until no more pages.
-    Returns dict: {url: text_content}
-    """
     pages = {}
     current_url = start_url
 
@@ -55,9 +49,6 @@ def crawl_site(start_url, delay=6):
     return pages
 
 
-# ============================================================
-# Stage 1: test the crawler alone
-# ============================================================
 if __name__ == '__main__':
     pages = crawl_site('https://quotes.toscrape.com/')
     for url in pages:
