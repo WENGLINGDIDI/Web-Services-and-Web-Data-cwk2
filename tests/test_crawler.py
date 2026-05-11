@@ -30,6 +30,7 @@ def make_response(html, status=200):
     return r
 
 
+# test for craw page
 class TestGetPage:
     def test_returns_soup_on_200(self):
         with patch('crawler.requests.get') as mock_get:
@@ -52,6 +53,7 @@ class TestGetPage:
             assert soup is None
 
 
+# test for craw site
 class TestCrawlSite:
     def test_crawls_all_pages(self):
         with patch('crawler.get_page') as mock_get_page:
